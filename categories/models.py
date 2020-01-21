@@ -8,6 +8,13 @@ class Category(models.Model):
                                on_delete=models.SET_NULL, null=True,
                                help_text='Parent of the category')
 
+    @property
+    def siblings(self):
+        if not self.parent:
+            return []
+
+        return self.parent.children.exclude(pk=self.pk)
+
     def __str__(self):
         return self.name
 

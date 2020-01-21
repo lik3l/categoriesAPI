@@ -16,6 +16,12 @@ def save_categories(categories, initial_parent=None):
     return instances
 
 
+class SimpleCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ('id', 'name')
+
+
 class CategorySerializer(serializers.ModelSerializer):
     children = serializers.JSONField(required=False, write_only=True)
 
@@ -36,3 +42,16 @@ class CategorySerializer(serializers.ModelSerializer):
             resp['children'] = save_categories(children, instance)
 
         return resp
+
+
+class RetrieveSerializer(serializers.ModelSerializer):
+    parent = SimpleCategorySerializer(read_only=True)
+    children = SimpleCategorySerializer(read_only=True, many=True)
+    siblings = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Category
+        fields = ('id', 'name', 'parent', 'children', 'siblings')
+
+    def get_siblings(self, instance):
+        return SimpleCategorySerializer(instance.siblings, many=True).data
