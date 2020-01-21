@@ -3,9 +3,20 @@ version: '3'
 services:
     web:
         build: .
-        command: gunicorn categoriesAPI.wsgi:application --bind 0.0.0.0:8000
+        command: bash -c "python manage.py migrate && python manage.py collectstatic --no-input && gunicorn categoriesAPI.wsgi:application --bind 0.0.0.0:8000"
         volumes:
             - .:/code
+            - static_volume:/code/staticfiles
         env_file: .env
+        expose:
+            - 8000
+    nginx:
+        build: ./nginx
         ports:
-            - "8000:8000"
+            - 80:80
+        depends_on:
+            - web
+        volumes:
+            - static_volume:/code/staticfiles
+volumes:
+    static_volume:
