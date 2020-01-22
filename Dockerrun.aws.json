@@ -3,5 +3,17 @@
   "Logging": "/code/test",
   "Image": {
   	"Update": "false"
-  }
+  },
+  "Commands": [
+    "python",
+    "manage.py",
+    "collectstatic",
+    "--no-input"
+  ],
+  "Volumes": [
+    {
+      "HostDirectory": "/var/app/current/staticfiles",
+      "ContainerDirectory": "/code/staticfiles"
+    }
+  ]
 }
