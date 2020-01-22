@@ -11,18 +11,13 @@
   "containerDefinitions": [
     {
       "name": "python-app",
-      "image": "lik3l/categories-api",
+      "image": "lik3l/categories-app",
       "essential": true,
       "memory": 128,
       "environment": [{
         "name": "DEBUG",
         "value": 1
       }],
-      "commands": [
-        "tail",
-        "-f",
-        "/bin/bash"
-      ],
       "mountPoints": [
         {
           "sourceVolume": "python-app",
