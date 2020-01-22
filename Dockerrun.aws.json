@@ -11,7 +11,7 @@
   "containerDefinitions": [
     {
       "name": "python-app",
-      "image": "lik3l/categories-app",
+      "image": "lik3l/categories-app:latest",
       "essential": true,
       "memory": 128,
       "environment": [{
