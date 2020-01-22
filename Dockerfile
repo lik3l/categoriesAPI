@@ -5,8 +5,5 @@ WORKDIR /code
 COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 COPY . /code/
-RUN python manage.py migrate
-RUN python manage.py collectstatic --no-input
+RUN python manage.py migrate && python manage.py collectstatic --no-input
 EXPOSE 8000
-
-ENTRYPOINT ["gunicorn", "categoriesAPI.wsgi:application", "--bind", "0.0.0.0:8000"]
