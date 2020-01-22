@@ -6,7 +6,7 @@
   },
   "Command": [
     "/usr/bin/python",
-    "manage.py",
+    "/code/manage.py",
     "collectstatic",
     "--no-input"
   ],
