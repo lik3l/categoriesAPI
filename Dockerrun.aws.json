@@ -12,12 +12,12 @@
     {
       "name": "python-app",
       "image": "lik3l/categories-api",
-      "environment": {
-        "name": "DEBUG",
-        "value": 1
-      },
       "essential": true,
       "memory": 128,
+      "environment": [{
+        "name": "DEBUG",
+        "value": 1
+      }],
       "mountPoints": [
         {
           "sourceVolume": "python-app",
