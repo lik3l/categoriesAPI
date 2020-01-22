@@ -1,12 +1,7 @@
 {
-  "AWSEBDockerrunVersion": 1,
-  "Volumes": [
-    {
-      "HostDirectory": "/var/app",
-      "ContainerDirectory": "/code"
-    }
-  ],
-  "Ports": [
-    {"ContainerPort": 8000}
-  ]
+  "AWSEBDockerrunVersion": "1",
+  "Logging": "/code/test",
+  "Image": {
+  	"Update": "false"
+  }
 }
