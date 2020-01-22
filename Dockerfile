@@ -5,5 +5,4 @@ WORKDIR /code
 COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 COPY . /code/
-RUN python manage.py migrate && python manage.py collectstatic --no-input
 EXPOSE 8000

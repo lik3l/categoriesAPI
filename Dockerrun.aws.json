@@ -1,42 +1,12 @@
 {
-  "AWSEBDockerrunVersion": 2,
-  "volumes": [
+  "AWSEBDockerrunVersion": 1,
+  "Volumes": [
     {
-      "name": "python-app",
-      "host": {
-        "sourcePath": "/var/app/current"
-      }
+      "HostDirectory": "/var/app",
+      "ContainerDirectory": "/code"
     }
   ],
-  "containerDefinitions": [
-    {
-      "name": "python-app",
-      "image": "lik3l/categories-app:latest",
-      "essential": true,
-      "memory": 128,
-      "update": "true",
-      "environment": [{
-        "name": "DEBUG",
-        "value": 1
-      }],
-      "commands": [
-        "gunicorn",
-        "categoriesAPI.wsgi:application",
-        "--bind",
-        "0.0.0.0:8000"
-      ],
-      "mountPoints": [
-        {
-          "sourceVolume": "python-app",
-          "containerPath": "/code"
-        }
-      ],
-      "portMappings": [
-        {
-          "hostPort": 8000,
-          "containerPort": 8000
-        }
-      ]
-    }
+  "Ports": [
+    {"ContainerPort": 8000}
   ]
 }
