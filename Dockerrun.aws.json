@@ -12,7 +12,7 @@
     {
       "name": "python-app",
       "image": "lik3l/categories-api",
-      "essential": true,
+      "essential": false,
       "memory": 128,
       "environment": [{
         "name": "DEBUG",
