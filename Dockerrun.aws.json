@@ -3,5 +3,11 @@
   "Logging": "/code/test",
   "Image": {
   	"Update": "false"
-  }
+  },
+  "Volumes": [
+    {
+      "HostDirectory": "/var/app/current",
+      "ContainerDirectory": "/code"
+    }
+  ]
 }
