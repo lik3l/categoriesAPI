@@ -4,12 +4,6 @@
   "Image": {
   	"Update": "false"
   },
-  "Command": [
-    "/usr/bin/python",
-    "/code/manage.py",
-    "collectstatic",
-    "--no-input"
-  ],
   "Volumes": [
     {
       "HostDirectory": "/var/app/current/staticfiles",
