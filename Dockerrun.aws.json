@@ -18,11 +18,6 @@
         "name": "DEBUG",
         "value": 1
       }],
-      "command": [
-        "gunicorn",
-        "categoriesAPI.wsgi:application",
-        " --bind 0.0.0.0:8000"
-      ],
       "mountPoints": [
         {
           "sourceVolume": "python-app",
