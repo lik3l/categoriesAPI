@@ -35,7 +35,7 @@ class CategorySerializer(serializers.ModelSerializer):
         return serializer.validated_data
 
     def create(self, validated_data):
-        children = validated_data.pop('children')
+        children = validated_data.pop('children', None)
         instance = Category.objects.create(**validated_data)
         resp = CategorySerializer(instance).data
         if children:
