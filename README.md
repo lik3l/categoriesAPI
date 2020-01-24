@@ -22,6 +22,9 @@ Access localhost
 virtualenv venv
 source venv/bin/activate
 pip install -r requirements.txt
+source .env
+export $(cut -d= -f1 < .env)
+python manage.py migrate
 python manage.py runserver
 ~~~
 Access localhost:8000
